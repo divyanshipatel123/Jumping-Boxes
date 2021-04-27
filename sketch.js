@@ -2,6 +2,7 @@ var canvas;
 var music;
 var blueS,orangeS,pinkS,greenS;
 var box;
+var edges;
 
 function preload(){
     music = loadSound("music.mp3");
@@ -35,14 +36,12 @@ function setup(){
 
 function draw() {
     background(0);
+    
     //create edgeSprite
-    createEdgeSprites();
+   edges =  createEdgeSprites();
+
     //bounceOff
-   //  box.bounceOff(edges);
-   box.bounceOff(blueS);
-   box.bounceOff(pinkS);
-   box.bounceOff(greenS);
-   box.bounceOff(orangeS);
+   box.bounceOff(edges);
 
     //add condition to check if box touching surface and make it box
     if(blueS.isTouching(box) && box.bounceOff(blueS)){
